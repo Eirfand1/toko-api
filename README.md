@@ -85,6 +85,7 @@ Authorization: Bearer <token>
 
 | Key          | Value    |
 | ------------ | -------- |
+| kode\_produk | P003   |
 | nama\_produk | gundam   |
 | harga        | 10000000 |
 
@@ -144,8 +145,9 @@ Authorization: Bearer <token>
 
 | Key          | Value    |
 | ------------ | -------- |
-| nama\_produk | gundam   |
-| harga        | 10000000 |
+| kode\_produk | P005     |
+| nama\_produk | lemari   |
+| harga        | 500000   |
 
 
  **Respons**:
