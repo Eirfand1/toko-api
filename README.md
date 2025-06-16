@@ -137,7 +137,7 @@ Authorization: Bearer <token>
 ### ✅ **5. Update Produk**
 
 
-**URL:** `PUT /api/produk` </br>
+**URL:** `PUT /api/produk/<id>` </br>
 **Headers**: `Authorization: Bearer <token>` </br>
 **Content-Type:** `application/x-www-form-urlencoded` </br>
 
