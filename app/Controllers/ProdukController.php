@@ -40,7 +40,7 @@ class ProdukController extends ResourceController
 
     public function create()
     {
-        $request = $this->request->getPost();
+        $request = $this->request->getJSON();
         if (!$this->model->save($request)) {
             return $this->fail($this->model->errors());
         }
@@ -50,13 +50,13 @@ class ProdukController extends ResourceController
 
     public function update($id = null)
     {
-        $data = $this->request->getRawInput();
+        $data = $this->request->getJSON();
 
         if (!$this->model->find($id)) {
             return $this->failNotFound("Produk dengan ID $id tidak ditemukan");
         }
 
-        $data['id'] = $id;
+        $data->id = $id;
         if (!$this->model->save($data)) {
             return $this->fail($this->model->errors());
         }

@@ -9,10 +9,10 @@ class AuthController extends ResourceController
 {
     public function login()
     {
-        $request = $this->request->getPost();
+        $request = $this->request->getJSON();
 
-        $email = $request['email'] ?? null;
-        $password = $request['password'] ?? null;
+        $email = $request->email ?? null;
+        $password = $request->password ?? null;
 
         if (!$email || !$password) {
             return $this->fail("Email dan password wajib diisi", 400);
@@ -48,11 +48,11 @@ class AuthController extends ResourceController
 
     public function register()
     {
-        $request = $this->request->getPost();
+        $request = $this->request->getJSON();
 
-        $nama = $request['nama'] ?? null;
-        $email = $request['email'] ?? null;
-        $password = $request['password'] ?? null;
+        $nama = $request->nama;
+        $email = $request->email;
+        $password = $request->password;
 
         if (!$nama || !$email || !$password) {
             return $this->fail('Nama, email, dan password wajib diisi', 400);

@@ -35,7 +35,7 @@ class MemberController extends ResourceController
     {
         $data = $this->model->find($id);
         unset($data['password']);
-        
+
         if ($data) {
             return $this->respond([
                 "success" => true,
@@ -48,11 +48,11 @@ class MemberController extends ResourceController
 
     public function create()
     {
-        $request = $this->request->getPost();
+        $request = $this->request->getJSON();
 
         $data = [
-            'nama' => $request['nama'],
-            'email' => $request['email'],
+            'nama' => $request->nama,
+            'email' => $request->email,
             'password' => password_hash($request['password'], PASSWORD_DEFAULT),
         ];
 
@@ -65,13 +65,13 @@ class MemberController extends ResourceController
 
     public function update($id = null)
     {
-        $data = $this->request->getRawInput();
+        $data = $this->request->getJSON();
 
         if (!$this->model->find($id)) {
             return $this->failNotFound("Member dengan ID $id tidak ditemukan");
         }
 
-        $data['id'] = $id;
+        $data->id = $id;
         if (!$this->model->save($data)) {
             return $this->fail($this->model->errors());
         }

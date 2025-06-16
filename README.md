@@ -79,7 +79,7 @@ Authorization: Bearer <token>
 
 **URL:** `POST /api/produk` </br>
 **Headers**: `Authorization: Bearer <token>` </br>
-**Content-Type:** `application/x-www-form-urlencoded` </br>
+**Content-Type:** `application/json` </br>
 
 **Body:**
 
@@ -139,7 +139,7 @@ Authorization: Bearer <token>
 
 **URL:** `PUT /api/produk/<id>` </br>
 **Headers**: `Authorization: Bearer <token>` </br>
-**Content-Type:** `application/x-www-form-urlencoded` </br>
+**Content-Type:** `application/json` </br>
 
 **Body:**
 
