@@ -20,8 +20,8 @@ Authorization: Bearer <token>
 
 ### 1. 📥 Register Member
 
-**URL:** `POST /api/auth/register`
-**Content-Type:** `application/x-www-form-urlencoded`
+**URL:** `POST /api/auth/register` </br>
+**Content-Type:** `application/x-www-form-urlencoded` </br>
 
 **Body:**
 
@@ -48,8 +48,8 @@ Authorization: Bearer <token>
 
 ### 2. 🔓 Login Member
 
-**URL:** `POST /api/auth/login`
-**Content-Type:** `application/x-www-form-urlencoded`
+**URL:** `POST /api/auth/login` </br>
+**Content-Type:** `application/x-www-form-urlencoded` </br>
 
 **Body:**
 
@@ -77,9 +77,9 @@ Authorization: Bearer <token>
 
 ### 3. 📦 Tambah Produk
 
-**URL:** `POST /api/produk`
-**Headers**: `Authorization: Bearer <token>`
-**Content-Type:** `application/x-www-form-urlencoded`
+**URL:** `POST /api/produk` </br>
+**Headers**: `Authorization: Bearer <token>` </br>
+**Content-Type:** `application/x-www-form-urlencoded` </br>
 
 **Body:**
 
@@ -106,8 +106,8 @@ Authorization: Bearer <token>
 
 ### 4. 📥 Ambil Semua Produk
 
-**URL:** `GET /api/produk`
-**Headers**: `Authorization: Bearer <token>`
+**URL:** `GET /api/produk` </br>
+**Headers**: `Authorization: Bearer <token>` </br>
 
 **Response:**
 
@@ -137,9 +137,9 @@ Authorization: Bearer <token>
 ### ✅ **5. Update Produk**
 
 
-**URL:** `PUT /api/produk`
-**Headers**: `Authorization: Bearer <token>`
-**Content-Type:** `application/x-www-form-urlencoded`
+**URL:** `PUT /api/produk` </br>
+**Headers**: `Authorization: Bearer <token>` </br>
+**Content-Type:** `application/x-www-form-urlencoded` </br>
 
 **Body:**
 
@@ -169,8 +169,8 @@ Authorization: Bearer <token>
 
 ### 🗑️ **6. Hapus Produk**
 
-**URL:** `PUT /api/produk/<id>`
-**Headers**: `Authorization: Bearer <token>`
+**URL:** `PUT /api/produk/<id>` </br>
+**Headers**: `Authorization: Bearer <token>` </br>
 
 **Respons**:
 
