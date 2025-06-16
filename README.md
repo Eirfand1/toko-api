@@ -21,7 +21,7 @@ Authorization: Bearer <token>
 ### 1. 📥 Register Member
 
 **URL:** `POST /api/auth/register` </br>
-**Content-Type:** `application/x-www-form-urlencoded` </br>
+**Content-Type:** `application/json` </br>
 
 **Body:**
 
@@ -49,7 +49,7 @@ Authorization: Bearer <token>
 ### 2. 🔓 Login Member
 
 **URL:** `POST /api/auth/login` </br>
-**Content-Type:** `application/x-www-form-urlencoded` </br>
+**Content-Type:** `application/json` </br>
 
 **Body:**
 
