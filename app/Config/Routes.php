@@ -14,3 +14,4 @@ $routes->group('api', ['filter' => 'auth'], function($routes) {
 
 $routes->resource('api/auth/login', ['controller' => 'AuthController::login']);
 $routes->resource('api/auth/register', ['controller' => 'AuthController::register']);
+$routes->options('(:any)', 'CorsController::options');
