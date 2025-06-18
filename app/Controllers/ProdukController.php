@@ -17,60 +17,66 @@ class ProdukController extends ResourceController
     }
 
     public function index()
-    {
-        $data = $this->model->findAll();
-        return $this->respond([
-            "success"=> true,
-            "data" => $data
-        ], 200);
-    }
+		{
+			$data = $this->model->findAll();
+			$data = array_map(function ($item) {
+				$item['id'] = (int) $item['id'];
+				$item['harga'] = (int) $item['harga'];
+				return $item;
+			}, $data);
 
-    public function show($id = null)
-    {
-        $data = $this->model->find($id);
-        if ($data) {
-            return $this->respond([
-                "success" => true,
-                "data" => $data
-            ], 200);
-        }
+			return $this->respond([
+				"success"=> true,
+				"data" => $data 
+			], 200);
+		}
 
-        return $this->failNotFound("Produk tidak ditemukan");
-    }
+		public function show($id = null)
+		{
+			$data = $this->model->find($id);
+			if ($data) {
+				return $this->respond([
+					"success" => true,
+					"data" => $data
+				], 200);
+			}
 
-    public function create()
-    {
-        $request = $this->request->getJSON();
-        if (!$this->model->save($request)) {
-            return $this->fail($this->model->errors());
-        }
+			return $this->failNotFound("Produk tidak ditemukan");
+		}
 
-        return $this->respond(['success' => true, 'data' => $request], 201);
-    }
+		public function create()
+		{
+			$request = $this->request->getJSON();
+			if (!$this->model->save($request)) {
+				return $this->fail($this->model->errors());
+			}
 
-    public function update($id = null)
-    {
-        $data = $this->request->getJSON();
+			return $this->respond(['success' => true, 'data' => $request], 201);
+		}
 
-        if (!$this->model->find($id)) {
-            return $this->failNotFound("Produk dengan ID $id tidak ditemukan");
-        }
+		public function update($id = null)
+		{
+			$data = $this->request->getJSON();
 
-        $data->id = $id;
-        if (!$this->model->save($data)) {
-            return $this->fail($this->model->errors());
-        }
+			if (!$this->model->find($id)) {
+				return $this->failNotFound("Produk dengan ID $id tidak ditemukan");
+			}
 
-        return $this->respond(['success' => true, 'message' => "Produk berhasil diupdate", "data" => $data], 200);
-    }
+			$data->id = $id;
+			if (!$this->model->save($data)) {
+				return $this->fail($this->model->errors());
+			}
 
-    public function delete($id = null)
-    {
-        if (!$this->model->find($id)) {
-            return $this->failNotFound("Produk dengan ID $id tidak ditemukan");
-        }
+			return $this->respond(['success' => true, 'message' => "Produk berhasil diupdate", "data" => $data], 200);
+		}
 
-        $this->model->delete($id);
-        return $this->respondDeleted(['success' => true, 'message' => "Produk berhasil dihapus"]);
-    }
+		public function delete($id = null)
+		{
+			if (!$this->model->find($id)) {
+				return $this->failNotFound("Produk dengan ID $id tidak ditemukan");
+			}
+
+			$this->model->delete($id);
+			return $this->respondDeleted(['success' => true, 'message' => "Produk berhasil dihapus"]);
+		}
 }

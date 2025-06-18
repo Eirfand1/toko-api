@@ -38,7 +38,7 @@ class AuthController extends ResourceController
             'message' => 'Login berhasil',
             'token' => $authKey,
             'user' => [
-                'id' => $user['id'],
+                'id' => (int)$user['id'],
                 'nama' => $user['nama'],
                 'email' => $user['email']
             ]
